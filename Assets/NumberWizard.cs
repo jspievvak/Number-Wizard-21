@@ -21,10 +21,10 @@ public class NumberWizard : MonoBehaviour
         min = 1;
         max = 1000;
         guess = (min + max) / 2;
-        Debug.Log("Witaj w grze Number Wizard");
-        print("Wymysl liczbe w glowie z przedzialu od " + min + " do " + max);
-        Debug.Log("Komputer bedzie pytal czy twoja liczba jest mniejsza lub wieksza od " + guess + " ?");
-        print("Jesli nacisniesz gorna strzalke to liczba jest wieksza, dolna strzalke liczba jest mniejsza, enter to twoja liczba");
+        Debug.Log("Welcome to Number Wizard!!!");
+        print("Pick a number between " + min + " do " + max);
+        Debug.Log("Let me know if your number is greater or smaller than " + guess);
+        print("Arrow Up means your number is higher, Arrow Down - lower. If I guessed, push Enter");
         max++;
     }
 
@@ -48,12 +48,12 @@ public class NumberWizard : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("Zwyciezam");
+            Debug.Log("I won. I always do.");
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
 
-        // poprawic buga z wybieraniem liczby 1000 
+        // poprawic buga z wybieraniem liczby 1000 //////// zrobione
         // sprobowac samodzielnie zamienic kolory komunikatow w konsoli 
         // dac uzytkownikowi mozliwosc w wybraniu przedzialu liczb (min i max)
         // Od razu po zakonczeniu jednej rozgrywki chcielibysmy restartowac nasza gre i uruchamiac ja na nowo (SceneManagement)
