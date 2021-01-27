@@ -1,13 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NumberWizard : MonoBehaviour
 {
     int min;
     int max;
     int guess;
-    void Start()
+
+    void NextGuess()
+    {
+        guess = (min + max) / 2;  
+        Debug.Log("Czy Twoja liczba jest mniejsza lub większa od " + guess + " ?");
+                     
+    }
+
+    void StartGame()
     {
         min = 1;
         max = 1000;
@@ -16,6 +25,12 @@ public class NumberWizard : MonoBehaviour
         print("Wymysl liczbe w glowie z przedzialu od " + min + " do " + max);
         Debug.Log("Komputer bedzie pytal czy twoja liczba jest mniejsza lub wieksza od " + guess + " ?");
         print("Jesli nacisniesz gorna strzalke to liczba jest wieksza, dolna strzalke liczba jest mniejsza, enter to twoja liczba");
+        max++;
+    }
+
+    void Start()
+    {
+        StartGame();
     }
 
 
@@ -24,18 +39,18 @@ public class NumberWizard : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             min = guess;
-            guess = (min + max) / 2;
-            Debug.Log("Czy twoja liczba jest mniejsza lub wieksza od " + guess + " ?");
+            NextGuess();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             max = guess;
-            guess = (min + max) / 2;
-            Debug.Log("Czy twoja liczba jest mniejsza lub wieksza od " + guess + " ?");
+            NextGuess();
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("Zwyciezam");
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
 
         // poprawic buga z wybieraniem liczby 1000 
