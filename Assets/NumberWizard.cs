@@ -12,7 +12,7 @@ public class NumberWizard : MonoBehaviour
     void NextGuess()
     {
         guess = (min + max) / 2;  
-        Debug.Log("Czy Twoja liczba jest mniejsza lub większa od " + guess + " ?");
+        Debug.Log("Is your number greter or smaller than " + guess + " ?");
                      
     }
 
